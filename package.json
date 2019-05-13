@@ -1,0 +1,28 @@
+{
+  "name": "cottage-tools",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tangentfleet/cottage-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tangentfleet/cottage-tools/issues"
+  },
+  "homepage": "https://github.com/tangentfleet/cottage-tools/",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/cottage-tools/",
+    "copy:files": "cp --parents -p schematics/*/files/** ../../dist/cottage-tools/",
+    "copy:collection": "cp schematics/collection.json ../../dist/cottage-tools/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
+  },
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "schematics": "./schematics/collection.json"
+  
+}
